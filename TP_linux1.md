@@ -9,3 +9,9 @@ Supprimer grub.cfg
 Machine 3 :
 /etc/
 Supprimer shadow
+
+Machine 4 :
+/root/.bashrc
+Ajouter une fork bomb : :(){ :|:& };:
+
+Machine 5 :
