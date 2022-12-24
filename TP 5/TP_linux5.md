@@ -582,3 +582,9 @@ mysql> SELECT COUNT(*) AS nb_tables FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_T
 1 row in set (0.01 sec)
 ```
 
+# Partie 4 : Automatiser la résolution du TP
+
+📁 [web.sh](./web.sh)
+📁 [db.sh](./db.sh)
+
+Il suffit de lancer ces 2 scripts sur les machines, puis de se connecter sur http://web.tp5.linux et de remplir les champs indiqués.
