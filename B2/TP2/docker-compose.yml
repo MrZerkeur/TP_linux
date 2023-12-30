@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  phpapache:
+    image: custom_php
+    ports:
+      - "80:80"
+    volumes:
+      - "./src/:/var/www/html"
+
+  mysql:
+    image: custom_mysql
+    restart: always
+    environment:
+      - MYSQL_DATABASE=mysqldb
+      - MYSQL_ROOT_PASSWORD=oui
+    volumes:
+      - "./sql/:/docker-entrypoint-initdb.d"
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8081:80
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=mysql
+      - PMA_USER=root
+      - PMA_PASSWORD=oui
