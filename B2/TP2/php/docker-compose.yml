@@ -9,7 +9,7 @@ services:
       - "./src/:/var/www/html"
 
   mysql:
-    image: custom_mysql
+    image: mysql
     restart: always
     environment:
       - MYSQL_DATABASE=mysqldb
