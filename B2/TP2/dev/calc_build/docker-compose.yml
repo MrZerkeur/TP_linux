@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  calculatrice:
+    image: python_calculatrice
+    ports:
+      - "13337:13337"
