@@ -6,41 +6,35 @@
 
 🌞 **Packager l'application de calculatrice réseau**
 
-- packaging du serveur, pas le client
-- créer un répertoire `calc_build/` dans votre dépôt git de rendu
-- créer un `Dockerfile` qui permet de build l'image
-- créer un `docker-compose.yml` qui permet de l'ancer un conteneur calculatrice
-- écrire vitefé un `README.md` qui indique les commandes pour build et run l'app
+[Dockerfile](./calc_build/Dockerfile)
+
+[Compose](./calc_build/docker-compose.yml)
+
+[Read me](./calc_build/README.md)
 
 🌞 **Environnement : adapter le code si besoin**
 
-- on doit pouvoir choisir sur quel port écoute la calculatrice si on définit la variable d'environnement `CALC_PORT`
-- votre code doit donc :
-  - récupérer la valeur de la variable d'environnement `CALC_PORT` si elle existe
-  - vous devez vérifier que c'est un entier
-  - écouter sur ce port là
-- ainsi, on peut choisir le port d'écoute comme ça avec `docker run` :
+[Dockerfile](./calc_build_modified/Dockerfile)
 
-```bash
-$ docker run -e CALC_PORT=6767 -d calc
-```
+[Compose](./calc_build_modified/docker-compose.yml)
+
+[Read me](./calc_build_modified/README.md)
 
 🌞 **Logs : adapter le code si besoin**
 
-- tous les logs de la calculatrice DOIVENT sortir en sortie standard
-- en effet, il est courant qu'un conteneur génère tous ses logs en sortie standard
-- on peut ensuite les consulter avec `docker logs`
-
 📜 **Dossier `tp2/calc/` dans le dépôt git de rendu**
 
-- `Dockerfile`
-- `docker-compose.yml`
-- `README.md`
-- `calc.py` : le code de l'app calculatrice
+[Dockerfile](./calc/Dockerfile)
+
+[Compose](./calc/docker-compose.yml)
+
+[Read me](./calc/README.md)
+
+[calc.py](./calc/calc.py)
 
 ## 2. Chat room
 
-![Cat Whale](./img/cat_whale.png)
+Soucis de client, à voir plus tard
 
 🌞 **Packager l'application de chat room**
 
