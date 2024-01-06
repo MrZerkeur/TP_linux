@@ -1,12 +1,14 @@
 version: "3"
 
 services:
-  phpapache:
+ phpapache:
     image: custom_php
+    ports:
+      - "80:80"
     volumes:
       - "./src/:/var/www/html"
 
-  mysql:
+ mysql:
     image: mysql
     restart: always
     environment:
@@ -15,7 +17,7 @@ services:
     volumes:
       - "./sql/:/docker-entrypoint-initdb.d"
 
-  phpmyadmin:
+ phpmyadmin:
     image: phpmyadmin
     restart: always
     environment:
@@ -24,9 +26,12 @@ services:
       - PMA_USER=root
       - PMA_PASSWORD=oui
 
-  nginx:
-    image: nginx
+ nginx:
+    image: nginx:stable-alpine
     ports:
       - "80:80"
     volumes:
-       - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - "./nginx.conf:/etc/nginx/nginx.conf"
+      - "./ssl:/etc/nginx/ssl"
+    depends_on:
+      - phpapache
