@@ -4,4 +4,4 @@
 
 [Et le docker compose pour lancer la stack](./docker-compose.yml)
 
-NOTE : MANQUE LE MESSAGE QUAND LES CONTAINERS SONT UP, CETTE MERDE SORT UN EXIT CODE 0 ET DONC LE CONTAINER QUI FAIT LE MESSAGE CONTINUE DE LANCER LA COMMANDE EN BOUCLE SANS FAIRE CE QU'IL EST SUPPOSÉ FAIRE APRÈS
+Il manque le message quand le container est up, il sort toujours un code 0, ce qui fait que soit le message apparait en boucle ou que 1 fois mais dans tous les cas, le container "s'arrête" là, donc il ne fait pas son travaille.
