@@ -7,7 +7,8 @@ services:
       - "80:80"
     volumes:
       - "./src/:/var/www/html"
-
+    command: sh -c "Le serveur est disponible sur localhost:80 ou localhost. Attendez quelques minutes pour que la DB se mette en route. Vous pouvez également visiter PHP My Admin sur localhost:8081"
+  
   mysql:
     image: mysql
     restart: always
