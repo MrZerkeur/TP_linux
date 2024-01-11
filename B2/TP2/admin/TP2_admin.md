@@ -21,38 +21,52 @@ docker run --memory="1g" --cpus="1" --user 1001 hello-world
 
 🌞 **Adaptez le `docker-compose.yml`** de [la partie précédente](./php.md)
 
-- il doit inclure un quatrième conteneur : un reverse proxy NGINX
-  - image officielle !
-  - un volume pour ajouter un fichier de conf
-- je vous file une conf minimale juste en dessous
-- c'est le seul conteneur exposé (partage de ports)
-  - il permet d'accéder soit à PHPMyAdmin
-  - soit à votre site
-- vous ajouterez au fichier `hosts` de **votre PC** (le client)
-  - `www.supersite.com` qui pointe vers l'IP de la machine qui héberge les conteneurs
-  - `pma.supersite.com` qui pointe vers la même IP (`pma` pour PHPMyAdmin)
-  - en effet, c'est grâce au nom que vous saisissez que NGINX saura vers quel conteneur vous renvoyer !
+```
+version: "3"
 
-> *Tu peux choisir un nom de domaine qui te plaît + on s'en fout, mais pense à bien adapter tous mes exemples par la suite si tu en choisis un autre.*
+services:
+ phpapache:
+    image: custom_php
+    volumes:
+      - "./src/:/var/www/html"
 
-```nginx
-server {
-    listen       80;
-    server_name  www.supersite.com;
+ mysql:
+    image: mysql
+    restart: always
+    environment:
+      - MYSQL_DATABASE=mysqldb
+      - MYSQL_ROOT_PASSWORD=oui
+    volumes:
+      - "./sql/:/docker-entrypoint-initdb.d"
 
-    location / {
-        proxy_pass   http://nom_du_conteneur_PHP;
-    }
-}
+ phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=mysql
+      - PMA_USER=root
+      - PMA_PASSWORD=oui
 
-server {
-    listen       80;
-    server_name  pma.supersite.com;
+ nginx:
+    image: nginx:stable-alpine
+    ports:
+      - "80:80"
+    volumes:
+      - "./nginx.conf:/etc/nginx/nginx.conf"
+```
 
-    location / {
-        proxy_pass   http://nom_du_conteneur_PMA;
-    }
-}
+```
+axel@axel:~$ cat /etc/hosts
+127.0.0.1	localhost
+127.0.0.1	www.supersite.com
+127.0.0.1	pma.supersite.com
+```
+
+Il faut faire :
+
+```
+docker compose up -d
 ```
 
 ## B. HTTPS auto-signé

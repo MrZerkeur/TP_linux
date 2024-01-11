@@ -1,7 +1,7 @@
 import asyncio
 
 global HOST 
-HOST = "10.1.1.11"
+HOST = "127.0.0.1"
 global PORT
 PORT = 8888
 global CLIENTS

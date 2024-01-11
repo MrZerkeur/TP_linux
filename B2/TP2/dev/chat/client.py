@@ -2,7 +2,7 @@ import asyncio
 from aioconsole import ainput
 
 global HOST 
-HOST = "10.1.1.11"
+HOST = "127.0.0.1"
 global PORT
 PORT = 8888
 
@@ -25,7 +25,7 @@ async def async_receive(reader):
     
         
 async def main():
-    pseudo = input("Entrez votre pseudo : ")
+    pseudo = "axel"
     
     reader, writer = await asyncio.open_connection(host=HOST, port=PORT)
     

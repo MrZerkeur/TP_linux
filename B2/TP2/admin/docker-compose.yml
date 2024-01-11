@@ -29,4 +29,6 @@ services:
     ports:
       - "80:80"
     volumes:
+      - "./certs/www.supersite.com.crt:/etc/ssl/certs/www.supersite.com.crt"
+      - "./certs/www.supersite.com.key:/etc/ssl/certs/www.supersite.com.key"
       - "./nginx.conf:/etc/nginx/nginx.conf"
