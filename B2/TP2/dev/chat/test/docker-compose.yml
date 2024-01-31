@@ -1,8 +1,8 @@
 version: "3"
 
 services:
-  chat:
-    image: python_chat
+  chatroom:
+    image: chatroom
     ports:
       - 8888:8888
     environment:

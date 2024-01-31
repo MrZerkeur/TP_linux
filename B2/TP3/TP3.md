@@ -662,3 +662,55 @@ script cassé
 PermitUserEnvironment no
 ......
 ```
+
+5.2.11
+```
+IgnoreRhosts yes
+```
+
+5.2.12
+```
+X11Forwarding no
+```
+
+5.2.13
+```
+AllowTcpForwarding no
+```
+
+5.2.14
+```
+grep -i '^\s*CRYPTO_POLICY=' /etc/sysconfig/sshd
+*no output*
+```
+
+5.2.15
+```
+Banner /etc/issue.net
+```
+
+5.2.16
+```
+MaxAuthTries 4
+```
+
+5.2.17
+```
+MaxStartups 10:30:60
+```
+
+5.2.18
+```
+MaxSessions 10
+```
+
+5.2.19
+```
+LoginGraceTime 60
+```
+
+5.2.20
+```
+ClientAliveInterval 15
+ClientAliveCountMax 3
+```

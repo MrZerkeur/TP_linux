@@ -25,7 +25,7 @@ async def async_receive(reader):
     
         
 async def main():
-    pseudo = "axel"
+    pseudo = await ainput()
     
     reader, writer = await asyncio.open_connection(host=HOST, port=PORT)
     
