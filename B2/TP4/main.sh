@@ -39,3 +39,15 @@ chmod +x ssh.sh
 echo "=========="
 echo "Finished setting up SSH"
 echo "=========="
+
+echo "=========="
+echo "Start setting up additional security"
+echo "=========="
+
+
+chmod +x additional_security.sh
+./additional_security.sh
+
+echo "=========="
+echo "Finished setting up additional security"
+echo "=========="
