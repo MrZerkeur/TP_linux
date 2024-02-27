@@ -2,9 +2,10 @@
 
 SetupFail2ban() {
     cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
-    sed -i 's/^enabled = false/enabled = false/' /etc/fail2ban/jail.local
+    sed -i 's/^enabled = false/enabled = true/' /etc/fail2ban/jail.local > /dev/null
+    sed -i 's/^backend = auto/backend = systemd/' /etc/fail2ban/jail.local > /dev/null
     systemctl restart fail2ban
-    echo "Fail2ban is just up an running but with default config, if you wish to change it, modify /etc/fail2ban/jail.local"
+    echo "Fail2ban is up and running but with default config, if you wish to change it, modify /etc/fail2ban/jail.local"
 }
 
 
