@@ -2,7 +2,6 @@
 
 CheckSSH() {
     if which sshd >/dev/null 2>&1; then
-        # Check if sshd service is active and enabled
         if systemctl is-active --quiet sshd && systemctl is-enabled --quiet sshd; then
             echo "SSH is installed, enabled and active ✅"
         fi

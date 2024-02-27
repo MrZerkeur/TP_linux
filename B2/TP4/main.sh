@@ -51,3 +51,27 @@ chmod +x additional_security.sh
 echo "=========="
 echo "Finished setting up additional security"
 echo "=========="
+
+echo "=========="
+echo "Start setting up nginx"
+echo "=========="
+
+
+chmod +x nginx.sh
+./nginx.sh
+
+echo "=========="
+echo "Finished setting up nginx"
+echo "=========="
+
+echo "=========="
+echo "Start setting up fail2ban"
+echo "=========="
+
+
+chmod +x fail2ban.sh
+./fail2ban.sh
+
+echo "=========="
+echo "Finished setting up fail2ban"
+echo "=========="
