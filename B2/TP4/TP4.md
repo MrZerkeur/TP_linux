@@ -117,7 +117,7 @@ A NOTER : Une configure plus sécurisée peut être trouvé [ici pour le proxy](
 
 # II. Hardening script
 
-Le script principale peut être trouvé [ici](./main.sh), il suffit de la copier lui et tous les autres .sh sur le serveur, le chmod +x et le lancer avec les droits root puis suivre les instructions du script et tout est bon ! 
+Le script principale peut être trouvé [ici](./main.sh), il suffit de suivre le [README](./README.md) (promis c'est pas long)
 
 
 # Note personnel
